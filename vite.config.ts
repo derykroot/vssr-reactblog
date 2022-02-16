@@ -3,15 +3,8 @@ import ssr from 'vite-plugin-ssr/plugin'
 import { UserConfig } from 'vite'
 
 export default async () =>{
-
-  const options = {
-    // See https://mdxjs.com/advanced/plugins
-    remarkPlugins: [(await import('remark-frontmatter')).default],
-    rehypePlugins: [],
-  }
-
   const config: UserConfig = {
-    plugins: [react(), ssr(), (await import('@mdx-js/rollup')).default(options)],
+    plugins: [react(), ssr(), (await import('@mdx-js/rollup-frontmatter')).default()],
     clearScreen: false,
     resolve: {
       alias: {
