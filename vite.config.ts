@@ -2,9 +2,17 @@ import react from '@vitejs/plugin-react'
 import ssr from 'vite-plugin-ssr/plugin'
 import { UserConfig } from 'vite'
 
+import replace from '@rollup/plugin-replace';
+import {getallmdatamdx} from './helpers/mdxmetadata'
+
 export default async () =>{
+  let rplc = replace({
+    preventAssignment: true,
+    'process.env.MDATA': JSON.stringify(await getallmdatamdx())
+  })
+
   const config: UserConfig = {
-    plugins: [react(), ssr(), (await import('@mdx-js/rollup-frontmatter')).default()],
+    plugins: [react(), ssr(), (await import('@mdx-js/rollup-frontmatter')).default(), rplc],
     clearScreen: false,
     resolve: {
       alias: {
