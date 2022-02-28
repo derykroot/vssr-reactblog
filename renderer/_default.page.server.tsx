@@ -19,9 +19,14 @@ async function render(pageContext: PageContextBuiltIn & PageContext) {
   )
 
   // See https://vite-plugin-ssr.com/head
-  const { documentProps } = pageContext
-  const title = (documentProps && documentProps.title) || 'Vite SSR app'
-  const desc = (documentProps && documentProps.description) || 'App using Vite + vite-plugin-ssr'
+  const fixedtitle = 'Vite SSR app';
+  const fixedauthor = 'Deryk Biotto';
+  const fixeddescription = 'App using Vite + vite-plugin-ssr';
+  const { documentProps, pageExports } = pageContext
+  const title = (pageExports.mdata || documentProps)?.title || fixedtitle
+  const desc = (pageExports.mdata || documentProps)?.description || fixeddescription
+  const author = (pageExports.mdata || documentProps)?.author || fixedauthor
+  const tags = (pageExports.mdata || documentProps)?.tags || []
 
   const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="en">
@@ -30,6 +35,8 @@ async function render(pageContext: PageContextBuiltIn & PageContext) {
         <link rel="icon" href="${logoUrl}" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${desc}" />
+        <meta name="keywords" content="${tags.join(", ")}">
+        <meta name="author" content="${author}">
         <title>${title}</title>
       </head>
       <body>

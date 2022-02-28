@@ -7,5 +7,15 @@ export type PageContext = {
   documentProps?: {
     title?: string
     description?: string
+    author?: string
+    tags?:Array<string>
+  }
+  pageExports: {
+    mdata?: {
+      title?: string
+      description?: string
+      author?: string
+      tags?:Array<string>
+    }
   }
 }
