@@ -1,29 +1,23 @@
-# Vite-SSR
+# Vite-SSR Blog Starter with React and MDX/YAML
 
-This directory is a brief example of a Vite/Vue.js site that can be deployed to Vercel with zero configuration.
+Minimalist SSR React Starter for Blog (Like Next.js/Nuxt, but much clean)
 
-While this project uses Vue.js, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+Produced with https://github.com/brillout/vite-plugin-ssr
 
-## Deploy Your Own
+- ✨ Support MDX with YAML Frontmatter metadata extraction
+- ✨ Vercel Compatible
 
-Deploy your own Vite project with Vercel.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/vite&template=vite)
-
-_Live Example: https://vite-vue-template.vercel.app_
-
-### How We Created This Example
-
-To get started with Vue.js deployed with Vercel, you can use Vite (https://vitejs.dev/guide/#scaffolding-your-first-vite-project) to initialize the project:
-
+## Install
 ```shell
-$ yarn create @vitejs/app
+$ npm i
 ```
 
-### Deploying From Your Terminal
-
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
-
+## Use
 ```shell
-$ vercel
+$ npm run dev
+```
+
+## Build
+```shell
+$ npm run build
 ```
